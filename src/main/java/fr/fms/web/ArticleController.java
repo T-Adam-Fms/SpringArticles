@@ -1,3 +1,4 @@
+
 package fr.fms.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,15 @@ import java.util.List;
 @Controller
 public class ArticleController {
     @Autowired
-    private ArticleRepository articleRepository;
+    ArticleRepository articleRepository;
 
     @GetMapping("/index")
     public String index(Model model) {
+    	List<Article> articles = articleRepository.findAll();
         model.addAttribute("listArticle", articleRepository.findAll());
         return "articles"; // Ensure the template name is correct
     }
 
 }
+
+

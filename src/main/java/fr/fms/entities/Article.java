@@ -1,3 +1,4 @@
+
 package fr.fms.entities;
 
 import java.io.Serializable;
@@ -22,4 +23,6 @@ public class Article implements Serializable {
     private String description;
     private double price;
 }
+
+
 

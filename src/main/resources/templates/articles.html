@@ -1,28 +1,40 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="ISO-8859-1">
     <title>MES ARTICLES</title>
+	<link rel="stylesheet"  href="../static/css/bootstrap.min 1 (1).css" th:href = "@{css/bootstrap.min 1 (1).css}"
 	
 </head>
 <body>
-    <table>
-       
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-            </tr>
-       
-       
-            <tr th:each="a : ${listArticle}">
-                <td th:text="${a.id}"></td>
-                <td th:text="${a.name}"></td>
-                <td th:text="${a.description}"></td>
-                <td th:text="${a.price}"></td>
-            </tr>
-        
-    </table>
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Liste des articles</div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Prix</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="a : ${listArticle}">
+                            <td th:text="${a.id}"></td>
+                            <td th:text="${a.name}"></td>
+                            <td th:text="${a.description}"></td>
+                            <td th:text="${a.price}"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+</html>
+

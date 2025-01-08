@@ -1,3 +1,4 @@
+
 package fr.fms.dao;
 
 import java.util.List;
@@ -9,3 +10,5 @@ import fr.fms.entities.Article;
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 
 }
+
+
