@@ -20,17 +20,24 @@ public class ArticleController {
     @GetMapping("/index")
     public String index(Model model, 
                         @RequestParam(name = "page", defaultValue = "0") int page) {
-        // Fetch paginated articles, 5 items per page
+        // Fetch the current page with 5 articles per page
         Page<Article> pageArticles = articleRepository.findAll(PageRequest.of(page, 5));
+
+        // Add articles for the current page to the model
         model.addAttribute("listArticle", pageArticles.getContent());
 
-        // Add total pages to the model
-        model.addAttribute("pages", new int[pageArticles.getTotalPages()]);
+        // Create an array of page numbers (0 to totalPages - 1)
+        int totalPages = pageArticles.getTotalPages();
+        int[] pagesArray = new int[totalPages];
+        for (int i = 1; i < totalPages; i++) {
+            pagesArray[i] = i;
+        }
+        model.addAttribute("pages", pagesArray);
 
-        // Add the current page to the model
+        // Add the current page index to the model
         model.addAttribute("currentPage", page);
 
-        // Return the view name (template name)
+        // Return the template name
         return "articles";
     }
 }
