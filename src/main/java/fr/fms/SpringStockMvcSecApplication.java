@@ -29,6 +29,9 @@ public class SpringStockMvcSecApplication implements CommandLineRunner {
 		articleRepository.save(new Article(null,"Google","Pixel 5",350));
 		articleRepository.save(new Article(null,"Poco","F3",150));
 		articleRepository.save(new Article(null,"Poco","F3",1050));
+		articleRepository.save(new Article(null,"Samsung","S8",250));
+		articleRepository.save(new Article(null,"Samsung","S9", 300));
+		articleRepository.save(new Article(null,"Iphone","10",500));	
 		
 		articleRepository.findAll().forEach(a -> System.out.println(a));
 	}

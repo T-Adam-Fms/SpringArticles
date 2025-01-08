@@ -4,8 +4,7 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>MES ARTICLES</title>
-	<link rel="stylesheet"  href="../static/css/bootstrap.min 1 (1).css" th:href = "@{css/bootstrap.min 1 (1).css}"
-	
+    <link rel="stylesheet" href="../static/css/bootstrap.min 1 (1).css" th:href="@{/css/bootstrap.min 1 (1).css}">
 </head>
 <body>
     <div class="container">
@@ -30,11 +29,18 @@
                         </tr>
                     </tbody>
                 </table>
+
+                <!-- Pagination Navigation -->
+				<ul class="nav nav-pills">
+				    <li th:each="index : ${pages}" 
+				        th:class="${index == currentPage} ? 'active' : ''">
+				        <a th:href="@{'/index?page=' + ${index}}">[[${index + 1}]]</a>
+				    </li>
+				</ul>
+
+
             </div>
         </div>
     </div>
 </body>
 </html>
-
-</html>
-
